@@ -44,6 +44,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "deploy": "yarn build && surge -p ./build --domain damaging-glass.surge.sh",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
