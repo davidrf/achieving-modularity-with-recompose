@@ -34,11 +34,10 @@ require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 
 const theme = createTheme({
-  primary: "white",
-  secondary: "#1F2022", // black
-  tertiary: "#03A9FC", // blue
-  quartenary: "#CECECE", // grey
-  code: "#2d2d2d",
+  blue: "#268bd2",
+  grey: "#586e75",
+  background: "#fdf6e3",
+  primary: "#586e75",
 }, {
   primary: "Montserrat",
   secondary: "Helvetica"
@@ -49,16 +48,16 @@ export default class Presentation extends React.Component {
     return (
       // <Deck transition={["slide"]} transitionDuration={500} theme={theme}>
       <Deck transitionDuration={500} theme={theme}>
-        <Slide transition={["fade"]} bgColor="secondary">
-          <Heading size={2} lineHeight={1} textColor="tertiary" margin="40px 0">
+        <Slide transition={["fade"]} bgColor="background">
+          <Heading size={2} lineHeight={1} textColor="blue" margin="40px 0">
             Increasing Modularity With Recompose
           </Heading>
-          <Text margin="0 0 10px 0" size={6} textColor="primary">by David Rodriguez Fuentes (D-Rod)</Text>
+          <Text margin="0 0 10px 0" size={6} textColor="grey">by David Rodriguez Fuentes (D-Rod)</Text>
           <Layout style={{ alignItems: 'center' }}>
             <Fill>
               <Layout style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <Image display="inline" src={twitterSrc} margin="0 0 0 0" height="90px" />
-                <Text size={6} textColor="primary" margin="0">
+                <Text size={6} textColor="grey" margin="0">
                   davidrf09
                 </Text>
               </Layout>
@@ -66,15 +65,15 @@ export default class Presentation extends React.Component {
             <Fill>
               <Layout style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <Image display="inline" src={githubSrc} margin="0 10px 0 0" />
-                <Text size={6} textColor="primary" margin="0">
+                <Text size={6} textColor="grey" margin="0">
                   davidrf
                 </Text>
               </Layout>
             </Fill>
           </Layout>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-          <Heading size={6} textColor="secondary" caps>About Me</Heading>
+        <Slide transition={["fade"]} bgColor="background" textColor="grey">
+          <Heading size={6} textColor="grey" caps>About Me</Heading>
           <Image height="150px" src={profileSrc} style={{ borderRadius: '5px' }}/>
           <List style={{ listStylePosition: 'outside' }}>
             <ListItem>Web Developer at Intrepid Pursuits. Recently acquired by Accenture.</ListItem>
@@ -83,39 +82,71 @@ export default class Presentation extends React.Component {
             <ListItem>Fan of Boston Sports Teams.</ListItem>
           </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="secondary" textColor="secondary">
-          <BlockQuote>
-            <Quote>
+        <Slide transition={["fade"]} bgColor="background" textColor="grey">
+          <BlockQuote textColor="grey">
+            <Quote textColor="grey">
             Build encapsulated components that manage their own state, then compose them to make complex UIs.
             </Quote>
-            <Cite>React Docs</Cite>
+            <Cite textColor="blue">React Docs</Cite>
           </BlockQuote>
         </Slide>
-        <Slide transition={["fade"]} bgColor="code" textColor="secondary">
+        <Slide transition={["fade"]} bgColor="background">
+          <Heading size={6} textColor="grey">DeleteButton Component</Heading>
           <Layout style={{ alignItems: 'center', justifyContent: 'center' }}>
             <Fit>
               <CodePane
-                textSize="11px"
                 lang="jsx"
-                source={require("./examples/PopUp.js")}
-                style={{ textAlign: 'left' }}
+                source={require("./examples/DeleteButtonFirstHalf.js")}
+              />
+            </Fit>
+            <Fit>
+              <CodePane
+                lang="jsx"
+                source={require("./examples/DeleteButtonSecondHalf.js")}
               />
             </Fit>
           </Layout>
         </Slide>
-        <Slide transition={["fade"]} bgColor="code" textColor="secondary">
+        <Slide transition={["fade"]} bgColor="background" textColor="secondary">
+          <ComponentPlayground
+            lang="jsx"
+            code={require("./examples/DeleteButtonForPlayground.js")}
+            scope={{
+              Modal,
+              PropTypes,
+            }}
+            style={{ textAlign: 'left' }}
+            theme="light"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background">
+          <Heading size={6} textColor="grey">PopUp Component</Heading>
           <Layout style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <ComponentPlayground
-              textSize="11px"
-              lang="jsx"
-              code={require("./examples/PopUpForPlayground.js")}
-              scope={{
-                Modal,
-                PropTypes,
-              }}
-              style={{ textAlign: 'left' }}
-            />
+            <Fit>
+              <CodePane
+                lang="jsx"
+                source={require("./examples/PopUpFirstHalf.js")}
+              />
+            </Fit>
+            <Fit>
+              <CodePane
+                lang="jsx"
+                source={require("./examples/PopUpSecondHalf.js")}
+              />
+            </Fit>
           </Layout>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background" textColor="secondary">
+          <ComponentPlayground
+            lang="jsx"
+            code={require("./examples/PopUpForPlayground.js")}
+            scope={{
+              Modal,
+              PropTypes,
+            }}
+            style={{ textAlign: 'left' }}
+            theme="light"
+          />
         </Slide>
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={6} textColor="primary" caps>Typography</Heading>

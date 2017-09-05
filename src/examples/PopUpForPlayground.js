@@ -1,6 +1,6 @@
-class DeleteButton extends Component {
+class PopUp extends Component {
   static propTypes = {
-    onDeleteConfirm: PropTypes.func.isRequired,
+    onClickClaim: PropTypes.func.isRequired,
   };
 
   state = {
@@ -11,31 +11,26 @@ class DeleteButton extends Component {
 
   openModal = () => this.setState({ isModalOpen: true })
 
-  confirm = () => {
-    this.props.onDeleteConfirm();
-    this.closeModal();
+  componentDidMount() {
+    setTimeout(this.openModal, 2000);
   }
 
   render() {
     return (
-      <div>
-        <button onClick={this.openModal}>Delete</button>
-        <Modal
-          isOpen={this.state.isModalOpen}
-          onRequestClose={this.closeModal}
-          contentLabel="Modal"
-        >
-          <h1>Are you sure?</h1>
-          <button onClick={this.confirm}>Yaas</button>
-          <button onClick={this.closeModal}>Nope</button>
-        </Modal>
-      </div>
+      <Modal
+        isOpen={this.state.isModalOpen}
+        onRequestClose={this.closeModal}
+        contentLabel="Modal"
+      >
+        <h1>You've won!</h1>
+        <button onClick={this.props.onClickClaim}>Claim my prize</button>
+      </Modal>
     );
   }
 }
 
-const onDeleteConfirm = () => {
-  console.log('deleted');
+const onClickClaim = () => {
+  console.log('claimed!');
 };
 
-render(<DeleteButton onDeleteConfirm={onDeleteConfirm} />, mountNode)
+render(<PopUp onClickClaim={onClickClaim} />, mountNode)
