@@ -3,6 +3,7 @@ import React from "react";
 
 // Import Spectacle Core tags
 import {
+  Appear,
   BlockQuote,
   Cite,
   CodePane,
@@ -15,7 +16,6 @@ import {
   Layout,
   List,
   ListItem,
-  Notes,
   Quote,
   Slide,
   Text,
@@ -140,6 +140,80 @@ export default class Presentation extends React.Component {
           <ComponentPlayground
             lang="jsx"
             code={require("./examples/PopUpForPlayground.js")}
+            scope={{
+              Modal,
+              PropTypes,
+            }}
+            style={{ textAlign: 'left' }}
+            theme="light"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background">
+          <Heading size={6} textColor="grey">Side to Side Component Comparison</Heading>
+          <Layout style={{ alignItems: 'center', justifyContent: 'center' }}>
+            <Fit>
+              <CodePane
+                lang="jsx"
+                source={require("./examples/DeleteButtonFirstHalfForComparison.js")}
+              />
+            </Fit>
+            <Fit>
+              <CodePane
+                lang="jsx"
+                source={require("./examples/PopUpFirstHalfForComparison.js")}
+              />
+            </Fit>
+          </Layout>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background">
+          <Layout style={{ flexDirection: 'column', height: '80vh', justifyContent: 'space-between' }}>
+            <Heading size={4} textColor="grey">Refactoring Logic</Heading>
+            <Text textColor="grey">What technique can we use here to refactor this shared component logic??</Text>
+            <Appear><Text italic textColor="grey" margin="0 0 20vh 0">Answer: Higher-Order Components (HOCs)</Text></Appear>
+          </Layout>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background" textColor="grey">
+          <Layout style={{ flexDirection: 'column', height: '100vh'}}>
+            <Heading size={4} textColor="grey">Review of Higher Order Functions</Heading>
+            <Layout>
+              <Fill>
+                <Layout style={{ flexDirection: 'column', width: '26rem' }}>
+                  <Text textColor="grey" margin="20px auto 0 0" textSize="2rem">Definition:</Text>
+                  <Text textColor="grey" margin="0 auto 0 0" textAlign="left" textSize="2rem" italic>A function that either receives a function as an argument (callback) or returns a function.</Text>
+                </Layout>
+              </Fill>
+
+              <CodePane
+                lang="jsx"
+                source={require("./examples/higherOrderFunctions.js")}
+                textSize="1.5rem"
+              />
+            </Layout>
+          </Layout>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background" textColor="grey">
+          <Layout style={{ flexDirection: 'column', height: '100vh' }}>
+            <Heading size={4} textColor="grey">Higher Order Component</Heading>
+            <Layout >
+              <Fill>
+                <Layout style={{ flexDirection: 'column', width: '26rem' }}>
+                  <Text textColor="grey" margin="20px auto 0 0" textSize="2rem">Definition:</Text>
+                  <Text textColor="grey" margin="0 auto 0 0" textAlign="left" textSize="2rem" italic>A higher-order component is a function that takes a component and returns a new component.</Text>
+                </Layout>
+              </Fill>
+
+              <CodePane
+                lang="jsx"
+                source={require("./examples/higherOrderComponents.js")}
+                textSize="0.9rem"
+              />
+            </Layout>
+          </Layout>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background" textColor="grey">
+          <ComponentPlayground
+            lang="jsx"
+            code={require("./examples/higherOrderComponentsForPlayground.js")}
             scope={{
               Modal,
               PropTypes,
