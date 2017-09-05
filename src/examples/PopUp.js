@@ -28,6 +28,7 @@ export default class PopUp extends Component {
       >
         <h1>You've won!</h1>
         <button onClick={this.props.onClickClaim}>Claim my prize</button>
+        <button onClick={this.closeModal}>Decline</button>
       </Modal>
     );
   }

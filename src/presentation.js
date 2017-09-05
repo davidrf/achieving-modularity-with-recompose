@@ -136,18 +136,6 @@ export default class Presentation extends React.Component {
             </Fit>
           </Layout>
         </Slide>
-        <Slide transition={["fade"]} bgColor="background" textColor="secondary">
-          <ComponentPlayground
-            lang="jsx"
-            code={require("./examples/PopUpForPlayground.js")}
-            scope={{
-              Modal,
-              PropTypes,
-            }}
-            style={{ textAlign: 'left' }}
-            theme="light"
-          />
-        </Slide>
         <Slide transition={["fade"]} bgColor="background">
           <Heading size={6} textColor="grey">Side to Side Component Comparison</Heading>
           <Layout style={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -205,7 +193,6 @@ export default class Presentation extends React.Component {
               <CodePane
                 lang="jsx"
                 source={require("./examples/higherOrderComponents.js")}
-                textSize="0.9rem"
               />
             </Layout>
           </Layout>
@@ -222,14 +209,69 @@ export default class Presentation extends React.Component {
             theme="light"
           />
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={6} textColor="primary" caps>Typography</Heading>
-          <Heading size={1} textColor="secondary">Heading 1</Heading>
-          <Heading size={2} textColor="secondary">Heading 2</Heading>
-          <Heading size={3} textColor="secondary">Heading 3</Heading>
-          <Heading size={4} textColor="secondary">Heading 4</Heading>
-          <Heading size={5} textColor="secondary">Heading 5</Heading>
-          <Text size={6} textColor="secondary">Standard text</Text>
+        <Slide transition={["fade"]} bgColor="background">
+          <Heading size={6} textColor="grey">Side to Side Component Comparison</Heading>
+          <Layout style={{ alignItems: 'center', justifyContent: 'center' }}>
+            <Fit>
+              <CodePane
+                lang="jsx"
+                source={require("./examples/DeleteButtonFirstHalfForComparison.js")}
+              />
+            </Fit>
+            <Fit>
+              <CodePane
+                lang="jsx"
+                source={require("./examples/PopUpFirstHalfForComparison.js")}
+              />
+            </Fit>
+          </Layout>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background">
+          <Heading size={6} textColor="grey">Creating addModalProps HOC</Heading>
+          <Layout style={{ alignItems: 'center', justifyContent: 'center' }}>
+            <Fit>
+              <CodePane
+                lang="jsx"
+                source={require("./examples/CreatingAddModalPropsFirstHalf.js")}
+              />
+            </Fit>
+            <Fit>
+              <CodePane
+                lang="jsx"
+                source={require("./examples/CreatingAddModalPropsSecondHalf.js")}
+              />
+            </Fit>
+          </Layout>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background" textColor="grey">
+          <ComponentPlayground
+            lang="jsx"
+            code={require("./examples/CreatingAddModalPropsForPlayground.js")}
+            scope={{
+              Modal,
+              PropTypes,
+            }}
+            style={{ textAlign: 'left' }}
+            theme="light"
+          />
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background" textColor="grey">
+          <Heading size={4} textColor="grey">Improving the addModalProps HOC</Heading>
+          <List>
+            <ListItem>Needs to set display name</ListItem>
+            <ListItem>ShouldComponentUpdate Optimizations</ListItem>
+          </List>
+          <Appear><Text size={6} textColor="grey">Already done by Recompose 🙌</Text></Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="background" textColor="grey">
+          <Heading size={4} textColor="grey">Recompose by Andrew Clark</Heading>
+          <Text textColor="grey" textSize="2rem">Recompose is a React utility belt for function components and higher-order components. Think of it like lodash for React. It includes functions for:</Text>
+          <List>
+            <ListItem>Create HOCs which create stateful components</ListItem>
+            <ListItem>Create HOCs that add/remove/modify props</ListItem>
+            <ListItem>Create HOCs that optimize components</ListItem>
+            <ListItem>Combine HOCs</ListItem>
+          </List>
         </Slide>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={6} textColor="primary" caps>Typography</Heading>
