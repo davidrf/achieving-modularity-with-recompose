@@ -6,6 +6,6 @@ const createAddNumber = y => x => x + y;
 const addTwo = createAddNumber(2);
 
 // Equivalent to:
-// const addTwo = x => x + 3;
+// const addThree = x => x + 3;
 
 const addThree = createAddNumber(3);
